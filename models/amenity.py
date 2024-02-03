@@ -13,6 +13,9 @@ class Amenity(BaseModel, Base):
     if storage_t == "db":
         __tablename__ = "amenities"
         name = Column(String(128), nullable=False)
-        place_amenities = relationship("Place", secondary="place_amenity")
     else:
         name = ""
+    
+    def __init__(self, *args, **kwargs):
+        """initializes Amenity object"""
+        super().__init__(*args, **kwargs)
