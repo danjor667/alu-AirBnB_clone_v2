@@ -78,7 +78,7 @@ class test_basemodel(unittest.TestCase):
         """ """
         n = {'Name': 'test'}
         new = self.value(**n)
-        self.assertEqual(new.name, n['Name'])
+        self.assertEqual(new.Name, n['Name'])
 
     def test_id(self):
         """ """
