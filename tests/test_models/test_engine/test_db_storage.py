@@ -69,7 +69,7 @@ class TestDBStorage(unittest.TestCase):
 
     def test_amenity(self):
         """ test amenity """
-        amenity = Amenity(name="Starlink")
+        amenity = Amenity(id="test1_id", name="Starlink")
         amenity.save()
         self.assertFalse(amenity.name, None)
         self.assertTrue(amenity.name, "Starlink")
