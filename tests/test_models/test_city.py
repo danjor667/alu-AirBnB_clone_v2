@@ -2,6 +2,7 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.city import City
+from models.state import State
 
 
 class test_City(test_basemodel):
@@ -15,10 +16,11 @@ class test_City(test_basemodel):
 
     def test_state_id(self):
         """ """
-        new = self.value()
+        state = State()
+        new = self.value(state_id=state.id)
         self.assertEqual(type(new.state_id), str)
 
     def test_name(self):
         """ """
-        new = self.value()
+        new = self.value(name="Silicon Valley")
         self.assertEqual(type(new.name), str)
