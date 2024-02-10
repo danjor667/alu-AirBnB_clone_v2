@@ -10,6 +10,7 @@ from models.city import City
 import os
 
 
+# skip these test if the storage is not db
 @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db', "skip if not fs")
 class TestDBStorage(unittest.TestCase):
     """DB Storage test"""
@@ -24,20 +25,20 @@ class TestDBStorage(unittest.TestCase):
 
     def test_user(self):
         """ Tests user """
-        user = User(name="John", email="John@gmail.com", password="John12345")
+        user = User(name="Chyna", email="chyna@gmail.com", password="Chyna12345")
         user.save()
         self.assertFalse(user.id in self.storage.all())
-        self.assertEqual(user.name, "John")
+        self.assertEqual(user.name, "Chyna")
 
     def test_city(self):
         """ test city """
         state = State(name="California")
         state.save()
-        city = City(name="Fresno")
+        city = City(name="Batch")
         city.state_id = state.id
         city.save()
         self.assertFalse(city.id in self.storage.all())
-        self.assertEqual(city.name, "Fresno")
+        self.assertEqual(city.name, "Batch")
 
     def test_state(self):
         """ test state"""
@@ -51,42 +52,42 @@ class TestDBStorage(unittest.TestCase):
         state = State(name="California")
         state.save()
 
-        city = City(name="Fresno")
+        city = City(name="Batch")
         city.state_id = state.id
         city.save()
 
-        user = User(name="John", email="John@gmail.com", password="John12345")
+        user = User(name="Chyna", email="chyna@gmail.com", password="Chyna12345")
         user.save()
 
-        place = Place(name="home", number_rooms=4)
+        place = Place(name="Palace", number_rooms=4)
         place.city_id = city.id
         place.user_id = user.id
         place.save()
 
         self.assertFalse(place.id in self.storage.all())
         self.assertEqual(place.number_rooms, 4)
-        self.assertEqual(place.name, "home")
+        self.assertEqual(place.name, "Palace")
 
     def test_amenity(self):
         """ test amenity """
-        amenity = Amenity(id="test1_id", name="Starlink")
+        amenity = Amenity(name="Startlink")
         amenity.save()
-        self.assertFalse(amenity.name, None)
-        self.assertTrue(amenity.name, "Starlink")
+        self.assertFalse(amenity.id in self.storage.all())
+        self.assertTrue(amenity.name, "Startlink")
 
     def test_review(self):
         """ test review """
         state = State(name="California")
         state.save()
 
-        city = City(name="Fresno")
+        city = City(name="Batch")
         city.state_id = state.id
         city.save()
 
-        user = User(name="John", email="John@gmail.com", password="John12345")
+        user = User(name="Chyna", email="chyna@gmail.com", password="Chyna12345")
         user.save()
 
-        place = Place(name="home", number_rooms=4)
+        place = Place(name="Palace", number_rooms=4)
         place.city_id = city.id
         place.user_id = user.id
         place.save()

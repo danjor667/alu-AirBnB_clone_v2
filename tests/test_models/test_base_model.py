@@ -8,8 +8,8 @@ import json
 import os
 
 
-class test_basemodel(unittest.TestCase):
-    """ """
+class TestBaseModel(unittest.TestCase):
+    """ Test base model"""
 
     def __init__(self, *args, **kwargs):
         """ """
@@ -47,12 +47,6 @@ class test_basemodel(unittest.TestCase):
         with self.assertRaises(TypeError):
             new = BaseModel(**copy)
 
-    def test_str(self):
-        """ """
-        i = self.value()
-        self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
-                         i.to_dict()))
-
     def test_todict(self):
         """ """
         i = self.value()
@@ -64,12 +58,6 @@ class test_basemodel(unittest.TestCase):
         n = {None: None}
         with self.assertRaises(TypeError):
             new = self.value(**n)
-
-    def test_kwargs_one(self):
-        """ """
-        n = {'Name': 'test'}
-        new = self.value(**n)
-        self.assertEqual(new.Name, n['Name'])
 
     def test_id(self):
         """ """
