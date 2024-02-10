@@ -68,3 +68,9 @@ class Place(BaseModel, Base):
         my_list = [amenity for amenity in storage.all(Amenity).values()
                    if amenity.place_id == self.id]
         return my_list
+    
+    @amenities.setter
+    def amenities(self, value=None):
+        """Adds ids in amenity_ids ."""
+        if isinstance(value, type(Amenity)):
+            self.amenity_ids.append(value.id)
