@@ -12,6 +12,7 @@ env.hosts = ['18.205.245.245', '54.208.57.96']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
 
+
 def do_pack():
     """generates a tgz archive"""
     try:
@@ -21,8 +22,10 @@ def do_pack():
         file_name = "versions/web_static_{}.tgz".format(date)
         local("tar -cvzf {} web_static".format(file_name))
         return file_name
-    except:
+    except Exception:
         return None
+
+
 def do_deploy(archive_path):
     """distributes an archive to the web servers"""
     if exists(archive_path) is False:
@@ -45,11 +48,17 @@ def do_deploy(archive_path):
         print(e)
         return False
 
+
 def deploy():
+    """
+    doc
+    """
     file = do_pack()
     if not file:
         return False
     else:
         return do_deploy(file)
+
+
 if __name__ == "__main__":
     deploy()
