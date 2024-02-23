@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""doc"""
+"""
+Starting a Flask app
+"""
 
 from flask import Flask
 from markupsafe import escape
@@ -10,19 +12,25 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def home():
-    """doc"""
+    """
+    home page
+    """
     return "Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """doc"""
+    """
+    hbnb page
+    """
     return "HBNB"
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_route(text):
-    """doc"""
+    """
+    dynamic routing
+    """
     text = text.replace('_', ' ')
     return f"C {escape(text)}"
 
@@ -30,14 +38,18 @@ def c_route(text):
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python(text):
-    """Displays python followed by the value of text"""
+    """
+    Displays python followed by the value of text
+    """
     text = text.replace('_', ' ')
     return f"Python {escape(text)}"
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    """Displays n is a number only if n is an integer"""
+    """
+    Displays n is a number only if n is an integer
+    """
     return f"{n} is a number"
 
 
