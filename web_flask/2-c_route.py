@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Starting a Flask app
+Starting a Flask app a simple one
 """
 
 from flask import Flask
@@ -31,8 +31,8 @@ def c_route(text):
     """
     dynamic routing returns c plus <text>
     """
-    new_text = text.replace('_', ' ')
-    return f"C {(new_text)}"
+    #new_text = text.replace('_', ' ')
+    return text.replace('_', ' ')
 
 
 if __name__ == "__main__":
