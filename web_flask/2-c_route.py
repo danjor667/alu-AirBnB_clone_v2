@@ -31,8 +31,7 @@ def c_route(text):
     """
     dynamic routing returns c plus <text>
     """
-    #new_text = text.replace('_', ' ')
-    return text.replace('_', ' ')
+    return 'C {}'.format(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
