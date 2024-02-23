@@ -30,14 +30,14 @@ def c_route(text):
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python(text):
-    """doc"""
+    """Displays python followed by the value of text"""
     text = text.replace('_', ' ')
     return f"Python {escape(text)}"
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    """doc"""
+    """Displays n is a number only if n is an integer"""
     return f"{n} is a number"
 
 
