@@ -29,10 +29,9 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def c_route(text):
     """
-    dynamic routing
+    dynamic routing returns c plus <text>
     """
-    text = text.replace('_', ' ')
-    return f"C {escape(text)}"
+    return 'C {}'.format(escape(text.replace('_', ' ')))
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
@@ -42,7 +41,7 @@ def python(text):
     Displays python followed by the value of text
     """
     text = text.replace('_', ' ')
-    return f"Python {escape(text)}"
+    return "Python {}".format(escape(text))
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
@@ -50,7 +49,7 @@ def number(n):
     """
     Displays n is a number only if n is an integer
     """
-    return f"{n} is a number"
+    return "{} is a number".format(n)
 
 
 if __name__ == "__main__":
