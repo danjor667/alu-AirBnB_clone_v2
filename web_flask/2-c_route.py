@@ -4,7 +4,7 @@ Starting a Flask app
 """
 
 from flask import Flask
-from markupsafe import escape
+#from markupsafe import escape
 
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def c_route(text):
     dynamic routing returns c plus <text>
     """
     new_text = text.replace('_', ' ')
-    return f"C {escape(new_text)}"
+    return f"C {(new_text)}"
 
 
 if __name__ == "__main__":
