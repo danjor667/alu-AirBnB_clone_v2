@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def home():
     """
-    home page
+    home page return hello HBNB
     """
     return "Hello HBNB!"
 
@@ -21,7 +21,7 @@ def home():
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """
-    hbnb page
+    hbnb page returns HBNB
     """
     return "HBNB"
 
@@ -29,7 +29,7 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def c_route(text):
     """
-    dynamic routing
+    dynamic routing returns c plus <text>
     """
     new_text = text.replace('_', ' ')
     return f"C {escape(new_text)}"
