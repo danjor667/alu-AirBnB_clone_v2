@@ -30,7 +30,7 @@ def c_route(text):
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python(text):
-    """doc"""
+    """Displays python followed by the value of text"""
     text = text.replace('_', ' ')
     return f"Python {escape(text)}"
 
