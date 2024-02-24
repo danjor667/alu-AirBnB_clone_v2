@@ -11,18 +11,18 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.teardown_appcontext
-def tear_down(exeception):
-    """force closure of the current db session"""
-    storage.close()
-
-
 @app.route('/states_list', strict_slashes=False)
 def state_list():
     """doc
     """
-    states = storage.all(State).values().sort(key=lambda state: state.name)
-    return render_template('7-state_list.html', states)
+    states = storage.all("State").values().sort(key=lambda state: state.name)
+    return render_template('7-states_list.html', states=states)
+
+
+@app.teardown_appcontext
+def tear_down(exeception):
+    """force closure of the current db session"""
+    storage.close()
 
 
 if __name__ == "__main__":
